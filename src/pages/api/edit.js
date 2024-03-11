@@ -1,0 +1,24 @@
+import { sql } from "@vercel/postgres";
+
+export default async function handler(request, response) {
+  try {
+    const result = await sql`UPDATE blog_posts SET content = '[{
+        "section_content": "The Indian luxury real estate market is booming, with demand for high-end homes growing steadily. This is being driven by a number of factors, including increasing disposable incomes, growing urbanization, and a rising desire for a luxurious lifestyle.<br/><br/>As a result, developers are increasingly focusing on creating luxury projects that offer the best in terms of design, amenities, and lifestyle. "
+      }, {
+        "section_title": "Key trends that are redefining luxury living in India:",
+        "section_content": "<ul style=''margin-left: 2.5rem; list-style-type: disc;''><li style=''margin-bottom: 10px;''><b>Sustainability:</b> Luxury buyers are increasingly looking for homes that are environmentally friendly and sustainable. This means that developers are incorporating green features into their projects, such as solar panels, rainwater harvesting, and energy-efficient appliances.</li><li style=''margin-bottom: 10px;''><b>Smart home technology:</b> Smart home technology is becoming increasingly popular in luxury homes, as it allows residents to control their homes'' systems from their smartphones or voice commands. This can include features such as lighting, thermostats, security, and entertainment systems.</li><li style=''margin-bottom: 10px;''><b>Amenities beyond imagination:</b> Modern luxury residences redefine the concept of amenities. From private home theaters and wine cellars to smart home automation systems, these properties offer a seamless integration of technology and convenience. Spa-inspired bathrooms, infinity pools, and private fitness centers enhance the wellness quotient of luxury living.</li><li style=''margin-bottom: 10px;''><b>Connectivity:</b> Luxury buyers want homes that are well-connected to the rest of the city. This means that developers are locating their projects in prime locations with easy access to transportation, shopping, and dining.</li><li style=''margin-bottom: 10px;''><b>Theming:</b> Luxury projects are increasingly being themed, such as a wellness retreat or a tropical oasis. This creates a unique and immersive experience for residents.</li><li style=''margin-bottom: 10px;''><b>Design elegance:</b> Luxury homes in India now embrace a fusion of contemporary and timeless design elements. Clean lines, expansive glass windows, and open floor plans create a sense of space and fluidity. Architectural innovation, such as integrating nature through vertical gardens and rooftop terraces, brings the outdoors inside, creating a harmonious living environment.</li></ul>"
+      }, {
+        "section_title": "Examples of Luxury Projects in Gurgaon",
+        "section_content": "Gurgaon, a hub of luxury real estate, boasts an array of exceptional projects that epitomize opulent living. Let''s take a glimpse into some of the standout luxury properties:<br/><br/><b>1. DLF Magnolias:</b> This iconic project presents spacious apartments with panoramic views, lavish interiors, and a world-class clubhouse that redefines luxury lifestyle in Gurgaon.<br/><br/><b>2. The Crest by DLF:</b> Known for its elegant design and attention to detail, The Crest offers residents a host of amenities including a private theater, spa, and an exclusive concierge service.<br/><br/><b>3. Ireo Grand Hyatt Residences:</b> Blending opulent residences with the renowned Grand Hyatt hospitality, this project is a testament to luxury living with premium services and breathtaking views.<br/><br/><b>4. M3M Golf Estate:</b> A living masterpiece, this project boasts golf-themed living, skywalks, and modern amenities like no other, elevating the luxury quotient in Gurgaon.<br/><br/>These are just a few examples of the many luxury projects that are currently being developed in India. As the market continues to grow, we can expect to see even more innovative and luxurious homes being built in the years to come."
+      }, {
+        "section_title": "Conclusion",
+        "section_content": "The luxury real estate market in India is undergoing a major transformation. As buyers become more discerning, developers are responding by creating homes that offer the best in terms of design, amenities, and lifestyle. The trends mentioned above are just a few of the ways in which the luxury real estate market is evolving in India. It will be interesting to see how the market continues to develop in the years to come.<br/><br/>Explore the luxury living experience, the finest properties exclusively on our platform"
+      }]'::JSONB WHERE id = 3;`;      
+    const posts = result.rows;
+    const data = posts;
+    // console.log(data);
+    return response.status(200).json(data);
+  } catch (error) {
+    return response.status(500).json({ error });
+  }
+}

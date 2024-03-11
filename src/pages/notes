@@ -1,0 +1,25 @@
+const Begin = () => {
+  return (
+    <div
+      className="relative flex flex-col items-start justify-start h-screen bg-cover bg-center p-8"
+      style={{
+        backgroundImage:
+          "url('https://images.unsplash.com/photo-1460317442991-0ec209397118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80')",
+      }}
+    >
+      <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+      <div className="relative w-2/3 lg:p-10">
+        <h1 className="text-4xl lg:text-5xl text-white font-bold">
+          Take the 2 Minute Matching Quiz{" "}
+        </h1>
+        <p className="mt-5 text-lg lg:text-2xl text-white">
+          Let’s discover your ideal home by exploring your preferences! Answer a
+          few simple questions and together we’ll find your dream home, today.{" "}
+        </p>
+        <button className="mt-5 px-4 py-2 bg-[#8c52ff] text-white rounded-md">
+          Let’s Begin!
+        </button>
+      </div>
+    </div>
+  );
+};
